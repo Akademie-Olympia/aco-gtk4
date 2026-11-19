@@ -1,13 +1,15 @@
 # Package-local recipe. Stage checksummed sources with packaging/arch/build.sh.
-pkgname=arch-dotfiles-gtk-4.0
+pkgname=aco-arch-dotfiles-gtk-4.0
 pkgver=0.3.0
 pkgrel=1
 pkgdesc='GTK 4 desktop settings'
 arch=('any')
-url='https://github.com/Akademie-Olympia/aco-dotfiles'
+url='https://github.com/Akademie-Olympia/aco-arch-dotfiles'
 license=('LicenseRef-arch-dotfiles-bundle')
-depends=('arch-dotfiles-core>=0.3.0' 'gtk4' 'adwaita-icon-theme')
+depends=('aco-arch-dotfiles-core>=0.3.0' 'gtk4' 'adwaita-icon-theme')
 optdepends=()
+replaces=('arch-dotfiles-gtk-4.0')
+conflicts=('arch-dotfiles-gtk-4.0')
 options=('!strip')
 source=('payload.tar.gz')
 sha256sums=('__SOURCE_SHA256__')
