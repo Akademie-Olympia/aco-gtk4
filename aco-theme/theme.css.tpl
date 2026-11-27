@@ -30,41 +30,51 @@
 @define-color thumbnail_fg_color {{text}};
 
 /* Shared window chrome for native ACO applications. */
-@define-color aco_control_bg {{surface_alt}};
 @define-color aco_outline {{border}};
 @define-color aco_secondary_text {{subtext}};
 
 .aco-workspace {
-  background-color: @window_bg_color;
+  background-color: alpha(@window_bg_color, {{chrome_alpha}});
   color: @window_fg_color;
 }
 .aco-workspace .aco-titlebar {
-  background-color: @headerbar_bg_color;
-  box-shadow: inset 0 -1px @aco_outline;
-  min-height: 42px;
-  padding: 0 8px;
-}
-.aco-workspace .aco-titlebar button {
-  border-radius: {{radius_small}}px;
+  background-color: alpha(@headerbar_bg_color, {{chrome_alpha}});
+  box-shadow: inset 0 -1px alpha(@aco_outline, 0.45);
+  min-height: 36px;
+  padding: 0 6px;
 }
 .aco-workspace .aco-commandbar {
-  background-color: @window_bg_color;
-  padding: 6px 12px;
-  border-bottom: 1px solid @aco_outline;
+  background-color: alpha(@headerbar_bg_color, {{chrome_alpha}});
+  padding: 3px 10px;
+  border-bottom: 1px solid alpha(@aco_outline, 0.45);
 }
+.aco-workspace .aco-titlebar button,
 .aco-workspace .aco-commandbar button:not(.flat),
-.aco-workspace .aco-tool,
-.aco-workspace .aco-swatch {
-  background-color: @aco_control_bg;
+.aco-workspace .aco-tool {
+  background-color: transparent;
   color: @window_fg_color;
-  border: 1px solid @aco_outline;
+  border: 0;
   border-radius: {{radius_small}}px;
   box-shadow: none;
+  min-height: 28px;
+  min-width: 28px;
+  padding: 2px 7px;
 }
+.aco-workspace .aco-titlebar button:hover,
 .aco-workspace .aco-commandbar button:not(.flat):hover,
-.aco-workspace .aco-tool:hover,
-.aco-workspace .aco-swatch:hover {
-  background-color: mix(@aco_control_bg, @window_fg_color, 0.12);
+.aco-workspace .aco-tool:hover {
+  background-color: alpha(@window_fg_color, 0.09);
+}
+.aco-workspace .aco-titlebar button:checked,
+.aco-workspace .aco-commandbar button:checked {
+  background-color: alpha(@accent_bg_color, 0.1);
+  color: @accent_color;
+}
+.aco-workspace .aco-titlebar button:focus,
+.aco-workspace .aco-commandbar button:focus,
+.aco-workspace .aco-tool:focus {
+  outline: 2px solid @accent_color;
+  outline-offset: 1px;
 }
 .aco-workspace .aco-commandbar button:disabled {
   background-color: transparent;
@@ -72,30 +82,44 @@
 }
 .aco-workspace button.aco-primary,
 .aco-workspace menubutton.aco-primary > button {
-  background-color: mix(@window_bg_color, @accent_bg_color, 0.23);
-  color: @window_fg_color;
-  border: 1px solid @accent_bg_color;
-  padding: 0 12px;
-  font-weight: 600;
+  background-color: transparent;
+  color: @accent_color;
+  border: 0;
+  min-height: 28px;
+  min-width: 28px;
+  padding: 2px 8px;
+  box-shadow: none;
+  font-weight: 500;
 }
 .aco-workspace button.aco-primary:hover,
 .aco-workspace menubutton.aco-primary > button:hover {
-  background-color: mix(@window_bg_color, @accent_bg_color, 0.32);
+  background-color: alpha(@accent_bg_color, 0.12);
+}
+.aco-workspace .aco-swatch {
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: 99px;
+  min-width: 28px;
+  min-height: 28px;
+  padding: 2px;
+  box-shadow: none;
+}
+.aco-workspace .aco-swatch:hover {
+  background-color: alpha(@window_fg_color, 0.09);
 }
 .aco-workspace .aco-swatch.aco-swatch-selected {
   border-color: @accent_bg_color;
-  box-shadow: inset 0 0 0 1px @accent_bg_color;
 }
 .aco-workspace .aco-address {
   background-color: @view_bg_color;
-  border: 1px solid @aco_outline;
+  border: 1px solid alpha(@aco_outline, 0.6);
   border-radius: {{radius_small}}px;
 }
 .aco-workspace .aco-statusbar {
-  min-height: 30px;
-  padding: 0 14px;
-  background-color: @headerbar_bg_color;
-  border-top: 1px solid @aco_outline;
+  min-height: 24px;
+  padding: 0 10px;
+  background-color: alpha(@headerbar_bg_color, {{chrome_alpha}});
+  border-top: 1px solid alpha(@aco_outline, 0.45);
   font-size: 0.9em;
 }
 .aco-workspace .aco-statusbar.dim-label,
@@ -104,7 +128,7 @@
   opacity: 1;
 }
 .aco-workspace .aco-rail {
-  background: @sidebar_bg_color;
+  background: alpha(@sidebar_bg_color, {{chrome_alpha}});
 }
 .aco-workspace .aco-navigation {
   background: transparent;
@@ -112,37 +136,37 @@
 }
 .aco-workspace .aco-navigation row {
   border-radius: {{radius_small}}px;
-  min-height: 32px;
-  padding: 0 10px;
+  min-height: 29px;
+  padding: 0 8px;
 }
 .aco-workspace .aco-navigation row:selected {
-  background: alpha(@accent_bg_color, 0.18);
-  box-shadow: inset 2px 0 @accent_bg_color;
+  background: alpha(@accent_bg_color, 0.14);
+  box-shadow: none;
   color: @window_fg_color;
 }
 .aco-workspace .aco-nav-heading {
-  margin: 12px 10px 4px;
+  margin: 10px 8px 3px;
   font-size: 0.83em;
   font-weight: 600;
   color: @aco_secondary_text;
 }
 .aco-workspace .aco-nav-search {
-  margin: 12px 12px 0;
+  margin: 9px 9px 2px;
 }
 .aco-workspace .aco-settings-body {
   background: @window_bg_color;
 }
 .aco-workspace .aco-page-header {
-  border-bottom: 1px solid @aco_outline;
+  border-bottom: 1px solid alpha(@aco_outline, 0.45);
 }
 .aco-workspace .aco-settings-body .boxed-list {
-  border: 1px solid @aco_outline;
+  border: 1px solid alpha(@aco_outline, 0.5);
   border-radius: {{radius}}px;
 }
 .aco-workspace .aco-page-heading {
-  padding: 24px 24px 16px;
+  padding: 18px 22px 12px;
 }
 .aco-workspace .aco-page-title {
-  font-size: 1.85em;
-  font-weight: 700;
+  font-size: 1.55em;
+  font-weight: 650;
 }

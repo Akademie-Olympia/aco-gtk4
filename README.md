@@ -26,6 +26,9 @@ See [update and recovery](https://aco-arch-dotfiles.readthedocs.io/en/latest/ver
 ### Theme
 
 Native ACO workspaces share the title bar, command bar, sidebar and status styling through the same generated theme.
+Toolbars use compact, mostly unframed icon actions with visible keyboard focus. The title bar, sidebar and status
+surfaces use a restrained translucent tint when system transparency is on; `aco-theme transparency off` makes them
+solid. Document and file content remains readable on the palette surface.
 
 Colours, fonts and rounding come from [aco-theme](https://github.com/Akademie-Olympia/aco-theme): the templates in `aco-theme/` are rendered to `~/.config/aco/theme/gtk-4.0/` and included from here, so this config only holds behaviour and layout. Switch with `aco-theme mode|accent|transparency`; personal overrides go into `~/.config/aco/theme.local.conf`.
 
