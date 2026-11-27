@@ -28,3 +28,121 @@
 @define-color popover_fg_color {{text}};
 @define-color thumbnail_bg_color {{surface}};
 @define-color thumbnail_fg_color {{text}};
+
+/* Shared window chrome for native ACO applications. */
+@define-color aco_control_bg {{surface_alt}};
+@define-color aco_outline {{border}};
+@define-color aco_secondary_text {{subtext}};
+
+.aco-workspace {
+  background-color: @window_bg_color;
+  color: @window_fg_color;
+}
+.aco-workspace .aco-titlebar {
+  background-color: @headerbar_bg_color;
+  box-shadow: inset 0 -1px @aco_outline;
+  min-height: 42px;
+  padding: 0 8px;
+}
+.aco-workspace .aco-titlebar button {
+  border-radius: {{radius_small}}px;
+}
+.aco-workspace .aco-commandbar {
+  background-color: @window_bg_color;
+  padding: 6px 12px;
+  border-bottom: 1px solid @aco_outline;
+}
+.aco-workspace .aco-commandbar button:not(.flat),
+.aco-workspace .aco-tool,
+.aco-workspace .aco-swatch {
+  background-color: @aco_control_bg;
+  color: @window_fg_color;
+  border: 1px solid @aco_outline;
+  border-radius: {{radius_small}}px;
+  box-shadow: none;
+}
+.aco-workspace .aco-commandbar button:not(.flat):hover,
+.aco-workspace .aco-tool:hover,
+.aco-workspace .aco-swatch:hover {
+  background-color: mix(@aco_control_bg, @window_fg_color, 0.12);
+}
+.aco-workspace .aco-commandbar button:disabled {
+  background-color: transparent;
+  color: alpha(@window_fg_color, 0.45);
+}
+.aco-workspace button.aco-primary,
+.aco-workspace menubutton.aco-primary > button {
+  background-color: mix(@window_bg_color, @accent_bg_color, 0.23);
+  color: @window_fg_color;
+  border: 1px solid @accent_bg_color;
+  padding: 0 12px;
+  font-weight: 600;
+}
+.aco-workspace button.aco-primary:hover,
+.aco-workspace menubutton.aco-primary > button:hover {
+  background-color: mix(@window_bg_color, @accent_bg_color, 0.32);
+}
+.aco-workspace .aco-swatch.aco-swatch-selected {
+  border-color: @accent_bg_color;
+  box-shadow: inset 0 0 0 1px @accent_bg_color;
+}
+.aco-workspace .aco-address {
+  background-color: @view_bg_color;
+  border: 1px solid @aco_outline;
+  border-radius: {{radius_small}}px;
+}
+.aco-workspace .aco-statusbar {
+  min-height: 30px;
+  padding: 0 14px;
+  background-color: @headerbar_bg_color;
+  border-top: 1px solid @aco_outline;
+  font-size: 0.9em;
+}
+.aco-workspace .aco-statusbar.dim-label,
+.aco-workspace .aco-statusbar .dim-label {
+  color: @aco_secondary_text;
+  opacity: 1;
+}
+.aco-workspace .aco-rail {
+  background: @sidebar_bg_color;
+}
+.aco-workspace .aco-navigation {
+  background: transparent;
+  padding: 4px 8px 8px;
+}
+.aco-workspace .aco-navigation row {
+  border-radius: {{radius_small}}px;
+  min-height: 32px;
+  padding: 0 10px;
+}
+.aco-workspace .aco-navigation row:selected {
+  background: alpha(@accent_bg_color, 0.18);
+  box-shadow: inset 2px 0 @accent_bg_color;
+  color: @window_fg_color;
+}
+.aco-workspace .aco-nav-heading {
+  margin: 12px 10px 4px;
+  font-size: 0.83em;
+  font-weight: 600;
+  color: @aco_secondary_text;
+}
+.aco-workspace .aco-nav-search {
+  margin: 12px 12px 0;
+}
+.aco-workspace .aco-settings-body {
+  background: @window_bg_color;
+}
+.aco-workspace .aco-page-header {
+  border-bottom: 1px solid @aco_outline;
+}
+.aco-workspace .aco-settings-body .boxed-list {
+  border: 1px solid @aco_outline;
+  border-radius: {{radius}}px;
+}
+.aco-workspace .aco-page-heading {
+  padding: 24px 24px 16px;
+}
+.aco-workspace .aco-page-title {
+  font-size: 1.85em;
+  font-weight: 700;
+}
