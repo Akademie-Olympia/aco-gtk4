@@ -25,6 +25,8 @@ See [update and recovery](https://aco-arch-dotfiles.readthedocs.io/en/latest/ver
 
 ### Theme
 
+Native ACO workspaces share the title bar, command bar, sidebar and status styling through the same generated theme.
+
 Colours, fonts and rounding come from [aco-theme](https://github.com/Akademie-Olympia/aco-theme): the templates in `aco-theme/` are rendered to `~/.config/aco/theme/gtk-4.0/` and included from here, so this config only holds behaviour and layout. Switch with `aco-theme mode|accent|transparency`; personal overrides go into `~/.config/aco/theme.local.conf`.
 
 [![Package safety](https://github.com/Akademie-Olympia/aco-gtk4/actions/workflows/package.yml/badge.svg)](https://github.com/Akademie-Olympia/aco-gtk4/actions/workflows/package.yml)
