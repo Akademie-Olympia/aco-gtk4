@@ -6,7 +6,7 @@ pkgdesc='GTK 4 desktop settings'
 arch=('any')
 url='https://github.com/Akademie-Olympia/aco-arch-dotfiles'
 license=('LicenseRef-arch-dotfiles-bundle')
-depends=('aco-arch-dotfiles-core>=0.3.0' 'aco-arch-dotfiles-aco-theme' 'gtk4' 'adwaita-icon-theme' 'ttf-jetbrains-mono-nerd')
+depends=('aco-arch-dotfiles-core>=0.3.0' 'aco-arch-dotfiles-aco-theme>=0.3.0' 'gtk4' 'adwaita-icon-theme' 'ttf-jetbrains-mono-nerd')
 optdepends=()
 replaces=('arch-dotfiles-gtk-4.0')
 conflicts=('arch-dotfiles-gtk-4.0')
