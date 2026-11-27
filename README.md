@@ -30,3 +30,8 @@ Colours, fonts and rounding come from [aco-theme](https://github.com/Akademie-Ol
 [![Package safety](https://github.com/Akademie-Olympia/aco-gtk4/actions/workflows/package.yml/badge.svg)](https://github.com/Akademie-Olympia/aco-gtk4/actions/workflows/package.yml)
 
 [MIT licence](LICENSE).
+
+`aco-theme/tokens.conf.tpl` renders the resolved theme (profile, mode, palette, accent, transparency, fonts,
+rounding) to `~/.config/aco/theme/gtk-4.0/tokens.conf`. The native ACO apps read it through aco-common, follow it
+live, and can override it per app (Darstellung in each app's settings).
+
